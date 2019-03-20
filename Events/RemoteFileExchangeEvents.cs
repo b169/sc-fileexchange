@@ -1,5 +1,4 @@
-﻿using Foundation.SitecoreFileExchange;
-using Foundation.SitecoreFileExchange.Models;
+﻿using Foundation.SitecoreFileExchange.Models;
 using Foundation.SitecoreFileExchange.Services;
 using log4net;
 using Sitecore.DependencyInjection;
@@ -57,12 +56,12 @@ namespace Foundation.SitecoreFileExchange.Events
                     if (Settings.RemoveBlobWhenUploaded)
                     {
                         _fileService.Remove(eventArgs.FileId);
-                    }
-
-                    return;
+                    }                    
                 }
-
-                _log.Warn($"Temp folder setting was not found or empty -{Constants.Settings.TempFolderSettingsKey}");
+                else
+                {
+                    _log.Warn($"Temp folder setting was not found or empty -{Constants.Settings.TempFolderSettingsKey}");
+                }                
             }
         }
 

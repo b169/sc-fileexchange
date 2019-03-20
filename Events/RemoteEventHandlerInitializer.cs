@@ -1,9 +1,6 @@
 ﻿using Foundation.SitecoreFileExchange.Models;
 using Sitecore.Pipelines;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Foundation.SitecoreFileExchange.Events
 {
