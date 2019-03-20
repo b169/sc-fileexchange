@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Foundation.SitecoreFileExchange.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Foundation.SitecoreFileExchange.Services
 {
     public interface IRemoteFileExchangeService
     {
-        void Store(Stream stream, string fileName, string key, string customData, bool raiseEvent);
+        void Store(Stream stream, string fileName, FileExchangeEventData data);
         Stream Get(Guid fileId);
         void Remove(Guid fileId);
     }

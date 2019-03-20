@@ -42,6 +42,7 @@ namespace Foundation.SitecoreFileExchange.Events
                         stream.CopyTo(fs);
                     }
 
+                    stream.Dispose();
                     var localArgs = new RemoteFileExchangeFinishedEventArgs
                     {
                         CustomData = eventArgs.CustomData,
@@ -52,13 +53,12 @@ namespace Foundation.SitecoreFileExchange.Events
                         PathToFile = localPath
                     };
 
-                    stream.Dispose();
-
                     Event.RaiseEvent(Constants.Events.FileUploadFinishedLocalEventName, localArgs);
                     if (Settings.RemoveBlobWhenUploaded)
                     {
                         _fileService.Remove(eventArgs.FileId);
                     }
+
                     return;
                 }
 

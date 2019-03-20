@@ -15,20 +15,20 @@ namespace Foundation.SitecoreFileExchange.Services
         {
             _log = Sitecore.Diagnostics.LoggerFactory.GetLogger(typeof(RemoteFileExchangeService));
         }
-        public void Store(Stream stream, string fileName, string key, string customData, bool raiseEvent)
+        public void Store(Stream stream, string fileName, FileExchangeEventData data)
         {            
             var sharedDatabase = Database.GetDatabase(Settings.SharedDatabaseName);
             Guid blobId = Guid.NewGuid();
             ItemManager.SetBlobStream(stream, blobId, sharedDatabase);
-            if (raiseEvent)
+            if (data.RaiseEvent)
             {                
                 var args = new RemoteFileExchangeServiceArgs
                 {
                     SiteName = Sitecore.Context.Site?.Name,
                     Database = Sitecore.Context.Database?.Name,
                     FileName = fileName,
-                    Key = key,
-                    CustomData = customData,
+                    Key = data.Key,
+                    CustomData = data.Data,
                     FileId = blobId
                 };
 
