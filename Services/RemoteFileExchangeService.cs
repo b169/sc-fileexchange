@@ -32,7 +32,7 @@ namespace Foundation.SitecoreFileExchange.Services
                     FileId = blobId
                 };
 
-                Sitecore.Eventing.EventManager.QueueEvent(args, true, Settings.AddRemoteteEventToLocalQueue);
+                Sitecore.Eventing.EventManager.QueueEvent(args, true, Settings.AddRemoteEventToLocalQueue);
             }
         }
 
