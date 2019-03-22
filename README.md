@@ -7,8 +7,6 @@ Although the aim is to transfer files from CD to CM, with some configuration twe
 
 The library has tested on Standalone and Azure XP scaled environments. So far it works as expected.
 
-You can access to the source code on github https://github.com/b169/sc-fileexchange
-
 ## How to use it?
 * Add a reference to Foundation.SitecoreFileExchange library. 
 * When you want to transfer an uploaded file to CM instance, call RemoteFileExhangeService.Store function
